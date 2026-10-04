@@ -1,0 +1,15 @@
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+
+COPY pom.xml .
+RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
+RUN mvn -q -DskipTests dependency:go-offline
+
+COPY src ./src
+COPY public ./public
+
+RUN mvn -q -DskipTests package
+RUN mvn -q dependency:build-classpath -Dmdep.outputFile=/app/cp.txt
+
+ENV HOST=0.0.0.0
+CMD ["sh","-c","java -cp target/classes:$(cat /app/cp.txt) app.Server"]

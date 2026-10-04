@@ -1,0 +1,10 @@
+target/
+out/
+cp.txt
+*.class
+.env
+.env.*
+data/*.tsv
+data/*.bin
+firebase-service-account*.json
+service-account*.json

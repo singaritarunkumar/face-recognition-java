@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Face Recognition — Sign in</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f7fb;display:grid;place-items:center;min-height:100vh;margin:0}
+.card{background:#fff;width:min(420px,90%);padding:30px;border-radius:18px;box-shadow:0 10px 35px #0001}
+h1{margin-top:0}input{width:100%;box-sizing:border-box;padding:12px;margin:7px 0;border:1px solid #ccd3dd;border-radius:9px}
+button{width:100%;padding:12px;margin-top:10px;border:0;border-radius:9px;cursor:pointer;background:#1f6feb;color:white}
+.secondary{background:#eef2f7;color:#222}.err{color:#b42318;min-height:22px;margin-top:10px}.ok{color:#067647}
+.hidden{display:none}
+</style></head>
+<body><div class="card">
+<h1>Face Recognition</h1>
+<p>Sign in or create an account.</p>
+<div id="err" class="err"></div>
+<input id="name" placeholder="Name (for new account)">
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password (8+ characters)">
+<button onclick="signup()">Create account</button>
+<button class="secondary" onclick="login()">Sign in</button>
+</div>
+<script>
+async function call(path){
+ const body={name:document.getElementById('name').value,email:document.getElementById('email').value,password:document.getElementById('password').value};
+ const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'include',body:JSON.stringify(body)});
+ const j=await r.json().catch(()=>({}));
+ if(!r.ok) throw new Error(j.error||j.detail||'Request failed');
+ return j;
+}
+async function signup(){try{await call('/auth/signup');location='/';}catch(e){err(e.message)}}
+async function login(){try{await call('/auth/login');location='/';}catch(e){err(e.message)}}
+function err(s){document.getElementById('err').textContent=s}
+</script></body></html>

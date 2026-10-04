@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Face Recognition</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:900px;margin:30px auto;padding:0 16px;background:#f7f9fc}
+.card{background:#fff;padding:22px;border-radius:16px;box-shadow:0 8px 30px #0001;margin-bottom:18px}
+video,img{width:100%;max-height:420px;object-fit:cover;border-radius:12px;background:#111}
+button,input{padding:11px;border-radius:8px;border:1px solid #ccd3dd;margin:5px 0}button{cursor:pointer}
+.row{display:flex;gap:10px;flex-wrap:wrap}.status{min-height:24px}
+</style></head>
+<body>
+<div class="card"><h1>Face Recognition</h1><div id="who"></div><button onclick="logout()">Sign out</button></div>
+<div class="card">
+<h2>Camera</h2><video id="video" autoplay playsinline></video>
+<div class="row"><button onclick="startCamera()">Start camera</button><button onclick="capture()">Capture</button></div>
+<canvas id="canvas" hidden></canvas><div id="status" class="status"></div>
+</div>
+<div class="card">
+<h2>Enroll</h2><input id="person" placeholder="Person name">
+<button onclick="enroll()">Save face sample</button>
+</div>
+<div class="card">
+<h2>Identify</h2><button onclick="identify()">Identify captured face</button>
+<div id="result"></div>
+</div>
+<div class="card"><h2>Saved people</h2><div id="people"></div><button onclick="deleteFaces()">Delete all my saved faces</button></div>
+<script>
+let blob=null,stream=null;
+async function me(){let r=await fetch('/auth/me');if(!r.ok){location='/login.html';return}let j=await r.json();who.textContent='Signed in as '+j.name+' ('+j.email+')';loadPeople()}
+async function startCamera(){stream=await navigator.mediaDevices.getUserMedia({video:true});video.srcObject=stream}
+function capture(){if(!video.videoWidth){status.textContent='Start the camera first.';return}canvas.width=video.videoWidth;canvas.height=video.videoHeight;canvas.getContext('2d').drawImage(video,0,0);canvas.toBlob(b=>{blob=b;status.textContent='Image captured.'},'image/jpeg',.92)}
+async function enroll(){if(!blob)return status.textContent='Capture an image first.';let n=person.value.trim();if(!n)return status.textContent='Enter a name.';let r=await fetch('/api/enroll?name='+encodeURIComponent(n),{method:'POST',body:blob});let j=await r.json();status.textContent=j.error||'Face sample saved.';loadPeople()}
+async function identify(){if(!blob)return result.textContent='Capture an image first.';let r=await fetch('/api/identify?threshold=0.45',{method:'POST',body:blob});let j=await r.json();result.textContent=j.error|| (j.match?'Match: '+j.name+' (distance '+j.distance.toFixed(4)+')':'No match (distance '+j.distance.toFixed(4)+')')}
+async function loadPeople(){let r=await fetch('/api/people');let a=await r.json();people.textContent=a.map(x=>x.name).join(', ')||'None'}
+async function deleteFaces(){await fetch('/api/people',{method:'DELETE'});loadPeople()}
+async function logout(){await fetch('/auth/logout',{method:'POST'});location='/login.html'}
+me()
+</script></body></html>
