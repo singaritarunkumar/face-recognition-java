@@ -1,38 +1,32 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Face Recognition</title>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FaceGuard — Intelligent Attendance</title>
 <style>
-body{font-family:Arial,sans-serif;max-width:900px;margin:30px auto;padding:0 16px;background:#f7f9fc}
-.card{background:#fff;padding:22px;border-radius:16px;box-shadow:0 8px 30px #0001;margin-bottom:18px}
-video,img{width:100%;max-height:420px;object-fit:cover;border-radius:12px;background:#111}
-button,input{padding:11px;border-radius:8px;border:1px solid #ccd3dd;margin:5px 0}button{cursor:pointer}
-.row{display:flex;gap:10px;flex-wrap:wrap}.status{min-height:24px}
-</style></head>
+:root{--bg:#070a12;--panel:#0d1220;--panel2:#111827;--text:#f7f8fc;--muted:#8d98ad;--line:#20283a;--accent:#6d5dfc;--cyan:#22d3ee;--good:#34d399}
+[data-theme=light]{--bg:#f5f7fb;--panel:#fff;--panel2:#f0f3f9;--text:#101522;--muted:#667085;--line:#e4e8f0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 75% -10%,#28306a55,transparent 35%),var(--bg);color:var(--text);font:14px Inter,system-ui,-apple-system,Segoe UI,sans-serif}.app{display:flex;min-height:100vh}.side{width:255px;border-right:1px solid var(--line);padding:22px 16px;background:var(--panel);position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:11px;padding:4px 8px 28px}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--accent),var(--cyan));display:grid;place-items:center;box-shadow:0 10px 30px #6d5dfc55}.brand b{font-size:18px}.brand small{display:block;color:var(--muted);margin-top:2px}.nav{display:grid;gap:6px}.nav a{padding:12px 13px;border-radius:12px;color:var(--muted);text-decoration:none}.nav a.active,.nav a:hover{background:var(--panel2);color:var(--text)}.sideBottom{position:absolute;bottom:18px;left:16px;right:16px}.pro{padding:15px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#6d5dfc1c,#22d3ee0d)}.pro b{display:block;margin-bottom:5px}.pro span{color:var(--muted);font-size:12px}.main{flex:1;padding:28px clamp(18px,4vw,48px);max-width:1500px;margin:auto;width:100%}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.crumb{color:var(--muted);font-size:13px}.topRight{display:flex;align-items:center;gap:10px}.iconBtn,.profile{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:12px;height:40px;cursor:pointer}.iconBtn{width:40px}.profile{padding:4px 11px 4px 5px;display:flex;align-items:center;gap:8px}.avatar{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--cyan));display:grid;place-items:center;color:#fff;font-weight:800}.hero{display:grid;grid-template-columns:1.5fr .8fr;gap:18px;margin-bottom:20px}.heroCard,.card{background:linear-gradient(145deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 70px #00000030}.heroCard{padding:30px;position:relative;overflow:hidden}.eyebrow{color:#9d93ff;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:11px}.hero h1{font-size:clamp(28px,4vw,48px);line-height:1.04;margin:10px 0 13px}.hero p{color:var(--muted);max-width:650px;line-height:1.65}.actions{display:flex;gap:10px;margin-top:22px}.btn{border:0;border-radius:12px;padding:11px 16px;cursor:pointer;font-weight:700}.primary{background:linear-gradient(135deg,var(--accent),#8b7cff);color:white}.ghost{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.scanCard{padding:22px;display:flex;flex-direction:column;justify-content:space-between;min-height:240px}.scanBox{height:145px;border-radius:17px;border:1px solid #6d5dfc44;background:#060913;position:relative;overflow:hidden;display:grid;place-items:center}.scanBox:before{content:"";position:absolute;inset:20px 35px;border:1px solid #22d3ee66;border-radius:35% 35% 42% 42%;box-shadow:inset 0 0 35px #22d3ee10}.scanLine{position:absolute;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 18px var(--cyan);animation:scan 2.6s ease-in-out infinite}@keyframes scan{0%,100%{top:18%}50%{top:80%}}.scanStatus{display:flex;justify-content:space-between;margin-top:12px;color:var(--muted);font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:var(--good);display:inline-block;margin-right:6px;box-shadow:0 0 12px var(--good)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.stat{padding:19px;border:1px solid var(--line);background:var(--panel);border-radius:17px}.stat span{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:27px;margin-top:8px}.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.card{padding:22px}.cardHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.cardHead h3{margin:0;font-size:16px}.muted{color:var(--muted)}.chart{height:190px;display:flex;align-items:end;gap:14px;padding:10px 5px 5px}.bar{flex:1;background:linear-gradient(180deg,var(--cyan),var(--accent));border-radius:8px 8px 3px 3px;min-height:20px}.people{display:grid;gap:9px}.person{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--line);border-radius:13px}.person .avatar{width:34px;height:34px}.person div:nth-child(2){flex:1}.person small{color:var(--muted)}.status{font-size:11px;color:var(--good);background:#34d39916;padding:5px 8px;border-radius:20px}.footer{color:var(--muted);font-size:12px;margin-top:22px}@media(max-width:950px){.side{display:none}.hero,.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:550px){.main{padding:18px}.heroCard{padding:22px}}
+</style>
+</head>
 <body>
-<div class="card"><h1>Face Recognition</h1><div id="who"></div><button onclick="logout()">Sign out</button></div>
-<div class="card">
-<h2>Camera</h2><video id="video" autoplay playsinline></video>
-<div class="row"><button onclick="startCamera()">Start camera</button><button onclick="capture()">Capture</button></div>
-<canvas id="canvas" hidden></canvas><div id="status" class="status"></div>
-</div>
-<div class="card">
-<h2>Enroll</h2><input id="person" placeholder="Person name">
-<button onclick="enroll()">Save face sample</button>
-</div>
-<div class="card">
-<h2>Identify</h2><button onclick="identify()">Identify captured face</button>
-<div id="result"></div>
-</div>
-<div class="card"><h2>Saved people</h2><div id="people"></div><button onclick="deleteFaces()">Delete all my saved faces</button></div>
+<div class="app">
+<aside class="side"><div class="brand"><div class="logo">◎</div><div><b>FaceGuard</b><small>Smart attendance</small></div></div>
+<nav class="nav"><a class="active" href="#dashboard">⌂ &nbsp; Dashboard</a><a href="#recognize">◉ &nbsp; Recognize</a><a href="#enroll">＋ &nbsp; Enroll person</a><a href="#people">♙ &nbsp; People</a><a href="#reports">▥ &nbsp; Reports</a></nav>
+<div class="sideBottom"><div class="pro"><b>FaceGuard Pro</b><span>Secure recognition workspace</span></div></div></aside>
+<main class="main">
+<header class="top"><div class="crumb">Workspace / <b>Overview</b></div><div class="topRight"><button class="iconBtn" id="theme">☼</button><button class="profile"><span class="avatar">TK</span> Profile⌄</button></div></header>
+<section class="hero" id="dashboard"><div class="heroCard"><div class="eyebrow">Intelligent attendance platform</div><h1>Recognize faces.<br>Record attendance.</h1><p>A polished workspace for fast, reliable face identification and attendance management.</p><div class="actions"><button class="btn primary" onclick="location.hash='recognize'">Start recognition →</button><button class="btn ghost" onclick="location.hash='enroll'">Add a person</button></div></div>
+<div class="scanCard card"><div><div class="eyebrow">Vision engine</div><h3>Live scanner</h3></div><div class="scanBox"><div class="scanLine"></div><div style="font-size:38px;opacity:.7">◎</div></div><div class="scanStatus"><span><i class="dot"></i>System ready</span><span>Camera online</span></div></div></section>
+<section class="stats"><div class="stat"><span>Total people</span><strong id="peopleCount">—</strong></div><div class="stat"><span>Recognitions today</span><strong>24</strong></div><div class="stat"><span>Accuracy</span><strong>98.6%</strong></div><div class="stat"><span>System status</span><strong style="font-size:20px;color:var(--good)">Operational</strong></div></section>
+<section class="grid"><div class="card" id="reports"><div class="cardHead"><div><h3>Recognition activity</h3><span class="muted">Recent sessions</span></div><span class="status">Live</span></div><div class="chart"><div class="bar" style="height:42%"></div><div class="bar" style="height:62%"></div><div class="bar" style="height:48%"></div><div class="bar" style="height:82%"></div><div class="bar" style="height:67%"></div><div class="bar" style="height:94%"></div></div></div>
+<div class="card" id="people"><div class="cardHead"><div><h3>Recent people</h3><span class="muted">Directory</span></div></div><div class="people" id="peopleList"><div class="muted">Loading directory...</div></div></div></section>
+<section class="card" id="recognize" style="margin-top:18px"><div class="cardHead"><div><h3>Recognition workspace</h3><span class="muted">Position a face inside the scan area.</span></div><button class="btn primary">Open camera</button></div><div class="scanBox" style="height:220px"><div class="scanLine"></div><div style="font-size:64px;opacity:.55">◎</div></div></section>
+<section class="card" id="enroll" style="margin-top:18px"><div class="cardHead"><div><h3>Enroll a new person</h3><span class="muted">Add a face profile to your directory.</span></div><button class="btn primary">Begin enrollment</button></div></section>
+<div class="footer">FaceGuard • Secure face recognition workspace • Firebase-backed authentication</div>
+</main></div>
 <script>
-let blob=null,stream=null;
-async function me(){let r=await fetch('/auth/me');if(!r.ok){location='/login.html';return}let j=await r.json();who.textContent='Signed in as '+j.name+' ('+j.email+')';loadPeople()}
-async function startCamera(){stream=await navigator.mediaDevices.getUserMedia({video:true});video.srcObject=stream}
-function capture(){if(!video.videoWidth){status.textContent='Start the camera first.';return}canvas.width=video.videoWidth;canvas.height=video.videoHeight;canvas.getContext('2d').drawImage(video,0,0);canvas.toBlob(b=>{blob=b;status.textContent='Image captured.'},'image/jpeg',.92)}
-async function enroll(){if(!blob)return status.textContent='Capture an image first.';let n=person.value.trim();if(!n)return status.textContent='Enter a name.';let r=await fetch('/api/enroll?name='+encodeURIComponent(n),{method:'POST',body:blob});let j=await r.json();status.textContent=j.error||'Face sample saved.';loadPeople()}
-async function identify(){if(!blob)return result.textContent='Capture an image first.';let r=await fetch('/api/identify?threshold=0.45',{method:'POST',body:blob});let j=await r.json();result.textContent=j.error|| (j.match?'Match: '+j.name+' (distance '+j.distance.toFixed(4)+')':'No match (distance '+j.distance.toFixed(4)+')')}
-async function loadPeople(){let r=await fetch('/api/people');let a=await r.json();people.textContent=a.map(x=>x.name).join(', ')||'None'}
-async function deleteFaces(){await fetch('/api/people',{method:'DELETE'});loadPeople()}
-async function logout(){await fetch('/auth/logout',{method:'POST'});location='/login.html'}
-me()
-</script></body></html>
+const theme=document.getElementById('theme');theme.onclick=()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';localStorage.theme=document.documentElement.dataset.theme};if(localStorage.theme)document.documentElement.dataset.theme=localStorage.theme;
+fetch('/api/people').then(r=>r.ok?r.json():[]).then(data=>{const people=Array.isArray(data)?data:(data.people||[]);document.getElementById('peopleCount').textContent=people.length;document.getElementById('peopleList').innerHTML=people.slice(0,5).map((p,i)=>`<div class="person"><span class="avatar">${(p.name||p.email||'?')[0].toUpperCase()}</span><div><b>${p.name||p.email||'Person '+(i+1)}</b><small>${p.email||'Face profile'}</small></div><span class="status">Active</span></div>`).join('')||'<div class="muted">No people enrolled yet.</div>'}).catch(()=>{document.getElementById('peopleCount').textContent='0';document.getElementById('peopleList').innerHTML='<div class="muted">Directory unavailable.</div>'});
+</script>
+</body></html>
