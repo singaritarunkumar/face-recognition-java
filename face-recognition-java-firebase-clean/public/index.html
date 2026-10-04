@@ -7,6 +7,7 @@
 :root{--bg:#070a12;--panel:#0d1220;--panel2:#111827;--text:#f7f8fc;--muted:#8d98ad;--line:#20283a;--accent:#6d5dfc;--cyan:#22d3ee;--good:#34d399}
 [data-theme=light]{--bg:#f5f7fb;--panel:#fff;--panel2:#f0f3f9;--text:#101522;--muted:#667085;--line:#e4e8f0}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 75% -10%,#28306a55,transparent 35%),var(--bg);color:var(--text);font:14px Inter,system-ui,-apple-system,Segoe UI,sans-serif}.app{display:flex;min-height:100vh}.side{width:255px;border-right:1px solid var(--line);padding:22px 16px;background:var(--panel);position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:11px;padding:4px 8px 28px}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--accent),var(--cyan));display:grid;place-items:center;box-shadow:0 10px 30px #6d5dfc55}.brand b{font-size:18px}.brand small{display:block;color:var(--muted);margin-top:2px}.nav{display:grid;gap:6px}.nav a{padding:12px 13px;border-radius:12px;color:var(--muted);text-decoration:none}.nav a.active,.nav a:hover{background:var(--panel2);color:var(--text)}.sideBottom{position:absolute;bottom:18px;left:16px;right:16px}.pro{padding:15px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#6d5dfc1c,#22d3ee0d)}.pro b{display:block;margin-bottom:5px}.pro span{color:var(--muted);font-size:12px}.main{flex:1;padding:28px clamp(18px,4vw,48px);max-width:1500px;margin:auto;width:100%}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.crumb{color:var(--muted);font-size:13px}.topRight{display:flex;align-items:center;gap:10px}.iconBtn,.profile{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:12px;height:40px;cursor:pointer}.iconBtn{width:40px}.profile{padding:4px 11px 4px 5px;display:flex;align-items:center;gap:8px}.avatar{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--cyan));display:grid;place-items:center;color:#fff;font-weight:800}.hero{display:grid;grid-template-columns:1.5fr .8fr;gap:18px;margin-bottom:20px}.heroCard,.card{background:linear-gradient(145deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 70px #00000030}.heroCard{padding:30px;position:relative;overflow:hidden}.eyebrow{color:#9d93ff;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:11px}.hero h1{font-size:clamp(28px,4vw,48px);line-height:1.04;margin:10px 0 13px}.hero p{color:var(--muted);max-width:650px;line-height:1.65}.actions{display:flex;gap:10px;margin-top:22px}.btn{border:0;border-radius:12px;padding:11px 16px;cursor:pointer;font-weight:700}.primary{background:linear-gradient(135deg,var(--accent),#8b7cff);color:white}.ghost{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.scanCard{padding:22px;display:flex;flex-direction:column;justify-content:space-between;min-height:240px}.scanBox{height:145px;border-radius:17px;border:1px solid #6d5dfc44;background:#060913;position:relative;overflow:hidden;display:grid;place-items:center}.scanBox:before{content:"";position:absolute;inset:20px 35px;border:1px solid #22d3ee66;border-radius:35% 35% 42% 42%;box-shadow:inset 0 0 35px #22d3ee10}.scanLine{position:absolute;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 18px var(--cyan);animation:scan 2.6s ease-in-out infinite}@keyframes scan{0%,100%{top:18%}50%{top:80%}}.scanStatus{display:flex;justify-content:space-between;margin-top:12px;color:var(--muted);font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:var(--good);display:inline-block;margin-right:6px;box-shadow:0 0 12px var(--good)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.stat{padding:19px;border:1px solid var(--line);background:var(--panel);border-radius:17px}.stat span{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:27px;margin-top:8px}.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.card{padding:22px}.cardHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.cardHead h3{margin:0;font-size:16px}.muted{color:var(--muted)}.chart{height:190px;display:flex;align-items:end;gap:14px;padding:10px 5px 5px}.bar{flex:1;background:linear-gradient(180deg,var(--cyan),var(--accent));border-radius:8px 8px 3px 3px;min-height:20px}.people{display:grid;gap:9px}.person{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--line);border-radius:13px}.person .avatar{width:34px;height:34px}.person div:nth-child(2){flex:1}.person small{color:var(--muted)}.status{font-size:11px;color:var(--good);background:#34d39916;padding:5px 8px;border-radius:20px}.footer{color:var(--muted);font-size:12px;margin-top:22px}@media(max-width:950px){.side{display:none}.hero,.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:550px){.main{padding:18px}.heroCard{padding:22px}}
+.scanBox{isolation:isolate}.scanBox video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform:scaleX(-1);z-index:-1;background:#060913}.scanTag{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);padding:6px 12px;border-radius:20px;font-weight:700;font-size:12px;background:#060913cc;border:1px solid var(--line);color:var(--text);white-space:nowrap;z-index:2}.scanTag.ok{color:var(--good);border-color:var(--good)}.scanTag.bad{color:#fca5a5;border-color:#ef4444}.muted.ok{color:var(--good)}.muted.bad{color:#fca5a5}.btn[disabled]{opacity:.6;cursor:wait}.nameInput{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--text);outline:none;font:inherit}.nameInput:focus{border-color:var(--accent)}.hdrBtns{display:flex;gap:8px;align-items:center}.menu{position:absolute;right:0;top:46px;min-width:220px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--panel);box-shadow:0 20px 60px #0006;z-index:20;display:none}.menu.open{display:block}.menu b{display:block}.menu small{display:block;color:var(--muted);margin:2px 0 12px;word-break:break-all}.topRight{position:relative}
 </style>
 </head>
 <body>
@@ -27,6 +28,159 @@
 </main></div>
 <script>
 const theme=document.getElementById('theme');theme.onclick=()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';localStorage.theme=document.documentElement.dataset.theme};if(localStorage.theme)document.documentElement.dataset.theme=localStorage.theme;
-fetch('/api/people').then(r=>r.ok?r.json():[]).then(data=>{const people=Array.isArray(data)?data:(data.people||[]);document.getElementById('peopleCount').textContent=people.length;document.getElementById('peopleList').innerHTML=people.slice(0,5).map((p,i)=>`<div class="person"><span class="avatar">${(p.name||p.email||'?')[0].toUpperCase()}</span><div><b>${p.name||p.email||'Person '+(i+1)}</b><small>${p.email||'Face profile'}</small></div><span class="status">Active</span></div>`).join('')||'<div class="muted">No people enrolled yet.</div>'}).catch(()=>{document.getElementById('peopleCount').textContent='0';document.getElementById('peopleList').innerHTML='<div class="muted">Directory unavailable.</div>'});
+</script>
+<script>
+/* ===== FaceGuard: working camera, enrollment, recognition, profile ===== */
+(()=>{
+const $=s=>document.querySelector(s);
+const SAMPLES=3;               // frames captured per enrollment (more robust matching)
+let stream=null;const users=new Set();
+
+/* ---------- camera ---------- */
+function camError(e){
+  const n=e&&e.name;
+  if(!window.isSecureContext)return'Camera needs a secure connection. Open the site with https:// (or http://localhost).';
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)return'This browser does not support camera access. Try the latest Chrome, Edge, Safari or Firefox.';
+  if(n==='NotAllowedError'||n==='SecurityError')return'Camera permission is blocked. Click the camera/lock icon in the address bar, choose Allow, then try again.';
+  if(n==='NotFoundError'||n==='OverconstrainedError'||n==='DevicesNotFoundError')return'No camera was found on this device.';
+  if(n==='NotReadableError'||n==='AbortError'||n==='TrackStartError')return'The camera is being used by another app or browser tab. Close it and try again.';
+  return'Could not start the camera'+(e&&e.message?': '+e.message:'.');
+}
+async function getStream(){
+  if(!window.isSecureContext||!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)throw new Error('x');
+  try{return await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:640},height:{ideal:480}},audio:false})}
+  catch(e){if(e&&(e.name==='OverconstrainedError'||e.name==='NotFoundError'))return await navigator.mediaDevices.getUserMedia({video:true,audio:false});throw e}
+}
+function camStatus(){const s=document.querySelector('.scanCard .scanStatus span:last-child');if(s)s.textContent=stream?'Camera online':'Camera off'}
+async function camOn(key,video){
+  if(!stream||!stream.active)stream=await getStream();
+  users.add(key);video.srcObject=stream;video.style.display='block';await video.play();camStatus();
+}
+function camOff(key,video){
+  users.delete(key);video.srcObject=null;video.style.display='none';
+  if(!users.size&&stream){stream.getTracks().forEach(t=>t.stop());stream=null}camStatus();
+}
+function grab(video){ // centre crop of the live frame -> 256x256 JPEG (same for enroll + identify)
+  const w=video.videoWidth,h=video.videoHeight;if(!w||!h)return Promise.reject(new Error('Camera is not ready yet. Wait a second and try again.'));
+  const s=Math.min(w,h)*0.7,c=document.createElement('canvas');c.width=c.height=256;
+  c.getContext('2d').drawImage(video,(w-s)/2,(h-s)/2,s,s,0,0,256,256);
+  return new Promise((ok,no)=>c.toBlob(b=>b?ok(b):no(new Error('Could not capture the image.')),'image/jpeg',.92));
+}
+async function api(url,blob){
+  const r=await fetch(url,{method:'POST',headers:{'Content-Type':'image/jpeg'},body:blob,credentials:'same-origin'});
+  if(r.status===401){location.href='/login.html';throw new Error('Please sign in again.')}
+  const d=await r.json().catch(()=>({}));
+  if(!r.ok)throw new Error(d.error||'Request failed ('+r.status+').');
+  return d;
+}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function makeVideo(box){
+  const v=document.createElement('video');v.autoplay=true;v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.style.display='none';
+  box.insertBefore(v,box.firstChild);return v;
+}
+function say(el,text,cls){el.textContent=text;el.classList.remove('ok','bad');if(cls)el.classList.add(cls)}
+function hideGlyph(box,hide){[...box.children].forEach(c=>{if(c.tagName==='DIV'&&!c.classList.contains('scanLine')&&!c.classList.contains('scanTag'))c.style.visibility=hide?'hidden':'visible'})}
+function ghost(label){const b=document.createElement('button');b.className='btn ghost';b.textContent=label;b.style.display='none';return b}
+function wrapButtons(primary,...extra){
+  const wrap=document.createElement('div');wrap.className='hdrBtns';primary.parentNode.insertBefore(wrap,primary);
+  extra.forEach(b=>wrap.appendChild(b));wrap.appendChild(primary);
+}
+
+/* ---------- people directory + counters ---------- */
+function loadPeople(){
+  return fetch('/api/people',{credentials:'same-origin'}).then(r=>{if(r.status===401){location.href='/login.html';return[]}return r.ok?r.json():[]}).then(data=>{
+    const seen=new Set(),people=(Array.isArray(data)?data:(data.people||[])).filter(p=>{const k=(p.name||p.email||'').toLowerCase();if(seen.has(k))return false;seen.add(k);return true});
+    $('#peopleCount').textContent=people.length;
+    $('#peopleList').innerHTML=people.slice(0,5).map((p,i)=>`<div class="person"><span class="avatar">${esc((p.name||p.email||'?')[0].toUpperCase())}</span><div><b>${esc(p.name||p.email||'Person '+(i+1))}</b><small>${esc(p.email||'Face profile')}</small></div><span class="status">Active</span></div>`).join('')||'<div class="muted">No people enrolled yet.</div>';
+  }).catch(()=>{$('#peopleCount').textContent='0';$('#peopleList').innerHTML='<div class="muted">Directory unavailable.</div>'});
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+const dayKey='fg_rec_'+new Date().toISOString().slice(0,10);
+const recEl=document.querySelectorAll('.stat strong')[1];
+function showRec(){try{recEl.textContent=localStorage.getItem(dayKey)||'0'}catch(e){}}
+function bumpRec(){try{localStorage.setItem(dayKey,String((+localStorage.getItem(dayKey)||0)+1))}catch(e){}showRec()}
+showRec();
+loadPeople(); // refresh with de-duplicated names (each person has several samples)
+
+/* ---------- Recognize ---------- */
+(()=>{
+  const card=$('#recognize'),box=card.querySelector('.scanBox'),btn=card.querySelector('.btn.primary'),msg=card.querySelector('.cardHead .muted');
+  const idle=msg.textContent,video=makeVideo(box),close=ghost('Close camera'),tag=document.createElement('div');tag.className='scanTag';tag.style.display='none';box.appendChild(tag);
+  wrapButtons(btn,close);let open=false,busy=false;
+  const reset=()=>{open=false;camOff('rec',video);hideGlyph(box,false);tag.style.display='none';close.style.display='none';btn.textContent='Open camera';say(msg,idle)};
+  close.onclick=reset;
+  btn.onclick=async()=>{
+    if(busy)return;
+    if(!open){
+      btn.disabled=true;
+      try{await camOn('rec',video);open=true;hideGlyph(box,true);close.style.display='';btn.textContent='Identify face';say(msg,'Camera is on. Keep your face in the centre, then press Identify face.')}
+      catch(e){say(msg,camError(e),'bad')}
+      btn.disabled=false;return;
+    }
+    busy=true;btn.disabled=true;tag.style.display='none';say(msg,'Scanning…');
+    try{
+      const d=await api('/api/identify',await grab(video));
+      if(!d.enrolled){say(msg,'No faces are enrolled yet. Use “Enroll person” first.','bad');tag.textContent='No enrolled faces';tag.className='scanTag bad'}
+      else if(d.match){bumpRec();say(msg,'Recognized: '+d.name+'  (score '+d.distance.toFixed(1)+')','ok');tag.textContent='✔ '+d.name;tag.className='scanTag ok'}
+      else{say(msg,'No match found (best score '+d.distance.toFixed(1)+'). Improve the lighting, face the camera, or enroll this person.','bad');tag.textContent='Unknown face';tag.className='scanTag bad'}
+      tag.style.display='';
+    }catch(e){say(msg,e.message||'Recognition failed.','bad')}
+    busy=false;btn.disabled=false;
+  };
+  addEventListener('beforeunload',()=>{if(stream)stream.getTracks().forEach(t=>t.stop())});
+})();
+
+/* ---------- Enroll ---------- */
+(()=>{
+  const card=$('#enroll'),btn=card.querySelector('.btn.primary'),msg=card.querySelector('.cardHead .muted'),idle=msg.textContent;
+  const panel=document.createElement('div');panel.style.display='none';
+  panel.innerHTML='<input class="nameInput" id="enrollName" type="text" maxlength="60" placeholder="Full name of the person" autocomplete="off"><div class="scanBox" style="height:220px;margin-top:12px"><div class="scanLine"></div><div style="font-size:64px;opacity:.55">◎</div></div>';
+  card.appendChild(panel);
+  const name=panel.querySelector('input'),box=panel.querySelector('.scanBox'),video=makeVideo(box),cancel=ghost('Cancel');wrapButtons(btn,cancel);
+  let open=false,busy=false;
+  const reset=(keep)=>{open=false;camOff('enr',video);hideGlyph(box,false);panel.style.display='none';cancel.style.display='none';btn.textContent='Begin enrollment';if(!keep)say(msg,idle)};
+  cancel.onclick=()=>{if(!busy)reset()};
+  btn.onclick=async()=>{
+    if(busy)return;
+    if(!open){
+      btn.disabled=true;panel.style.display='block';
+      try{await camOn('enr',video);open=true;hideGlyph(box,true);cancel.style.display='';btn.textContent='Capture & enroll';say(msg,'Type the name, face the camera, then press Capture & enroll.');name.focus()}
+      catch(e){panel.style.display='none';say(msg,camError(e),'bad')}
+      btn.disabled=false;return;
+    }
+    const who=name.value.trim();
+    if(!who){say(msg,'Please type the person’s name first.','bad');name.focus();return}
+    busy=true;btn.disabled=true;cancel.disabled=true;
+    try{
+      for(let i=1;i<=SAMPLES;i++){
+        say(msg,'Hold still… capturing '+i+' of '+SAMPLES);
+        await api('/api/enroll?name='+encodeURIComponent(who),await grab(video));
+        if(i<SAMPLES)await sleep(700);
+      }
+      reset(true);name.value='';await loadPeople();say(msg,'✔ '+who+' was enrolled successfully.','ok');
+    }catch(e){say(msg,e.message||'Enrollment failed.','bad')}
+    busy=false;btn.disabled=false;cancel.disabled=false;
+  };
+})();
+
+/* ---------- Profile / sign out ---------- */
+(()=>{
+  const btn=$('.profile'),av=btn.querySelector('.avatar'),holder=btn.parentNode,menu=document.createElement('div');menu.className='menu';
+  menu.innerHTML='<b id="pfName">Signed in</b><small id="pfMail"></small><button class="btn primary" style="width:100%">Sign out</button>';holder.appendChild(menu);
+  fetch('/auth/me',{credentials:'same-origin'}).then(r=>r.ok?r.json():null).then(u=>{if(!u)return;
+    const n=(u.name||u.email||'?').trim();av.textContent=n.slice(0,2).toUpperCase();$('#pfName').textContent=u.name||'Signed in';$('#pfMail').textContent=u.email||''}).catch(()=>{});
+  btn.onclick=e=>{e.stopPropagation();menu.classList.toggle('open')};
+  addEventListener('click',e=>{if(!menu.contains(e.target))menu.classList.remove('open')});
+  menu.querySelector('button').onclick=async()=>{try{await fetch('/auth/logout',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}',credentials:'same-origin'})}catch(e){}location.href='/login.html'};
+})();
+
+/* ---------- sidebar highlight ---------- */
+(()=>{
+  const links=[...document.querySelectorAll('.nav a')];
+  const mark=()=>{const h=location.hash||'#dashboard';links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===h))};
+  addEventListener('hashchange',mark);mark();
+})();
+camStatus();
+})();
 </script>
 </body></html>
